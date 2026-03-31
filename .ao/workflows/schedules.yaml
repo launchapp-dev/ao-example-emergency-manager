@@ -1,0 +1,15 @@
+schedules:
+  - id: continuous-hazard-scan
+    cron: "*/15 * * * *"
+    workflow_ref: hazard-scan
+    enabled: true
+
+  - id: hourly-full-response
+    cron: "0 * * * *"
+    workflow_ref: emergency-response
+    enabled: false
+
+  - id: sitrep-update
+    cron: "*/30 * * * *"
+    workflow_ref: sitrep-only
+    enabled: false

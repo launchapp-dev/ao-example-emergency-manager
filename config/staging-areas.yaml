@@ -1,0 +1,56 @@
+staging_areas:
+  - id: north-staging
+    name: "North Valley Staging Area"
+    location: "Fairgrounds Parking Lot"
+    address: "4000 Fairgrounds Road (East Lot)"
+    capacity: "200 vehicles / 500 personnel"
+    coordinates: {lat: 37.85, lon: -122.15}
+    amenities: [parking, portable-toilets, water-access, fuel-depot]
+    best_for: [zone-a, zone-c]
+    notes: "Primary staging for north zone operations. Access via Highway 101 North exit 28."
+
+  - id: south-staging
+    name: "South County Staging Area"
+    location: "Industrial Park C"
+    address: "5500 Industrial Park Drive"
+    capacity: "150 vehicles / 300 personnel"
+    coordinates: {lat: 37.60, lon: -122.10}
+    amenities: [parking, loading-dock, warehouse-access, forklift]
+    best_for: [zone-e]
+    notes: "Good for bulk supply staging. Covered warehouse available for weather protection."
+
+  - id: command-post
+    name: "Emergency Operations Center (EOC)"
+    location: "County Admin Building"
+    address: "1600 Government Way, Room 200"
+    capacity: "50 personnel"
+    coordinates: {lat: 37.72, lon: -122.12}
+    amenities: [conference-rooms, satellite-uplink, backup-power, 24hr-operations]
+    notes: "Primary unified command post. NIMS-compliant setup. Backup at Fire Station 12."
+
+  - id: air-operations
+    name: "Air Operations Base"
+    location: "County Airport"
+    address: "9000 Airport Boulevard, FBO Hangar 3"
+    capacity: "10 aircraft"
+    coordinates: {lat: 37.62, lon: -122.18}
+    amenities: [fuel, maintenance, communications, weather-station]
+    notes: "Coordinate all aviation with Airport Director and FAA ARTCC."
+
+  - id: medical-staging
+    name: "Medical Staging and Triage"
+    location: "Valley Memorial Hospital South Parking"
+    address: "1200 Valley Medical Drive, South Lot"
+    capacity: "50 ambulances / 200 walking wounded"
+    coordinates: {lat: 37.83, lon: -122.14}
+    amenities: [hospital-access, generator, communications, trauma-supplies]
+    notes: "Triage and transport hub for mass casualty incidents. Establish START triage zones."
+
+  - id: supply-depot-main
+    name: "Main Supply Depot"
+    location: "Warehouse B"
+    address: "1800 Industrial Boulevard"
+    capacity: "20,000 sq ft storage"
+    coordinates: {lat: 37.70, lon: -122.11}
+    amenities: [loading-docks, forklifts, refrigeration, security]
+    notes: "Central distribution point. Pre-stocked with emergency supplies per resource-inventory."

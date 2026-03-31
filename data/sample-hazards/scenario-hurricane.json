@@ -1,0 +1,62 @@
+[
+  {
+    "source": "NWS",
+    "source_id": "NWS-HUR-2025-001",
+    "type": "weather-alert",
+    "sub_type": "Hurricane Warning",
+    "severity": "extreme",
+    "urgency": "immediate",
+    "certainty": "likely",
+    "headline": "Hurricane Warning issued for Sample County — Category 3 making landfall in 14 hours",
+    "description": "Hurricane Helena, currently a Category 3 storm with maximum sustained winds of 125 mph, is forecast to make landfall near the Sample County coastline between 0200-0600 UTC tomorrow. Storm surge of 8-12 feet is expected in coastal zones. Life-threatening conditions will begin 6 hours before landfall. Tornadoes are possible in outer bands.",
+    "instruction": "ALL residents in coastal and low-lying areas (Zones A, E) must evacuate NOW. Do not wait for official evacuation order if you are in a surge zone. Shelter in place inland residents in Zone B-D in a safe room or interior room away from windows.",
+    "area_desc": "Sample County, North Valley, South Flats, Downtown Core, Hillside District",
+    "sent_utc": "2025-09-15T08:00:00Z",
+    "effective_utc": "2025-09-15T08:00:00Z",
+    "expires_utc": "2025-09-16T20:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.12, 37.72]
+    }
+  },
+  {
+    "source": "NWS",
+    "source_id": "NWS-SS-2025-001",
+    "type": "weather-alert",
+    "sub_type": "Storm Surge Warning",
+    "severity": "extreme",
+    "urgency": "immediate",
+    "certainty": "likely",
+    "headline": "Potentially life-threatening storm surge of 8-12 feet above ground level",
+    "description": "Storm surge of 8 to 12 feet above ground level is possible for the Sample County coastline and tidal waterways. This surge could penetrate up to 3 miles inland in Zone E (South Flats). Water levels may rise quickly and the surge will be accompanied by large and dangerous waves.",
+    "instruction": "Leave immediately if you live or work in surge prone areas. Do not attempt to drive through flooded roads.",
+    "area_desc": "Sample County Coastline, Zone E (South Flats)",
+    "sent_utc": "2025-09-15T08:30:00Z",
+    "effective_utc": "2025-09-15T08:30:00Z",
+    "expires_utc": "2025-09-16T20:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.18, 37.62]
+    }
+  },
+  {
+    "source": "NWS",
+    "source_id": "NWS-TOR-2025-001",
+    "type": "weather-alert",
+    "sub_type": "Tornado Watch",
+    "severity": "severe",
+    "urgency": "expected",
+    "certainty": "possible",
+    "headline": "Tornado Watch for inland portions of Sample County through 2200 UTC",
+    "description": "Isolated tornadoes are possible in the outer bands of Hurricane Helena, particularly in the inland zones. Tornadoes associated with tropical systems can occur with little warning.",
+    "instruction": "Monitor local radio and TV for warnings. Be ready to move to a safe room immediately if a warning is issued.",
+    "area_desc": "Zone B (Downtown Core), Zone C (Hillside District)",
+    "sent_utc": "2025-09-15T10:00:00Z",
+    "effective_utc": "2025-09-15T10:00:00Z",
+    "expires_utc": "2025-09-15T22:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.12, 37.72]
+    }
+  }
+]

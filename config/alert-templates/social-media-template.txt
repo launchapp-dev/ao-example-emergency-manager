@@ -1,0 +1,74 @@
+SOCIAL MEDIA ALERT TEMPLATE
+============================
+Platform: Twitter/X, Facebook, NextDoor, Instagram
+
+Guidelines:
+- Lead with ALERT type and emoji (standard: ⚠️ watch, 🔴 warning, 🚨 emergency)
+- Short sentences. High urgency. Accessible language.
+- Hashtags: #[EventType] #[JurisdictionName] #[DisasterType]
+- Include official info link and phone number
+- Pin to top of official account pages
+- Do NOT include speculation — only confirmed facts
+
+---
+
+WATCH LEVEL TEMPLATE:
+⚠️ [EVENT_TYPE] WATCH — [ZONE_LIST]
+
+[ONE_SENTENCE_WHAT_IS_HAPPENING]
+
+What to do now:
+✅ Review your emergency plan
+✅ Prepare your go-bag
+✅ Know your nearest shelter: [SHELTER_NAME] at [SHELTER_ADDRESS]
+✅ Follow official updates only
+
+📞 Info: [PHONE_NUMBER]
+🌐 [WEBSITE]
+
+#EmergencyAlert #[JurisdictionName] #[DisasterType]
+
+---
+
+WARNING LEVEL TEMPLATE:
+🔴 [EVENT_TYPE] WARNING — [ZONE_LIST]
+
+[ONE_SENTENCE_IMMEDIATE_THREAT]
+
+Take action NOW:
+⚡ [PROTECTIVE_ACTION_1]
+⚡ [PROTECTIVE_ACTION_2]
+⚡ [PROTECTIVE_ACTION_3]
+
+Shelter locations open:
+📍 [SHELTER_1] — [SHELTER_1_ADDRESS]
+📍 [SHELTER_2] — [SHELTER_2_ADDRESS]
+
+📞 Emergency Info: [PHONE_NUMBER]
+🌐 [WEBSITE]
+
+#[EventType]Warning #[JurisdictionName]
+
+---
+
+EMERGENCY LEVEL TEMPLATE:
+🚨 EMERGENCY: [EVENT_TYPE] — [ZONE_LIST]
+
+[IMMEDIATE_THREAT_ONE_SENTENCE]
+
+[MAIN_PROTECTIVE_ACTION_IN_CAPS]
+
+[IF_EVACUATION]
+Evacuation routes:
+🚗 [ROUTE_1]
+🚗 [ROUTE_2]
+[/IF_EVACUATION]
+
+Open shelters:
+🏫 [SHELTER_1] — [SHELTER_1_ADDRESS] (capacity: [NUMBER])
+
+DO NOT CALL 911 unless life-threatening emergency.
+📞 Public info: [PHONE_NUMBER]
+🌐 [WEBSITE]
+
+#EmergencyAlert #[JurisdictionName] #[DisasterType]

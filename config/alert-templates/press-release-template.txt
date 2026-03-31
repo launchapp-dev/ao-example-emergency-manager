@@ -1,0 +1,59 @@
+PRESS RELEASE TEMPLATE
+=======================
+FOR IMMEDIATE RELEASE
+
+[JURISDICTION] EMERGENCY MANAGEMENT AGENCY ISSUES [ALERT_TIER] FOR [EVENT_TYPE]
+
+[CITY], [STATE] — [DATE], [TIME] [TIMEZONE]
+
+The [Jurisdiction] Emergency Management Agency has issued a [alert_tier] for [zone_list]
+in response to [event_type_description]. [One sentence on current conditions and forecast].
+
+WHAT IS HAPPENING
+[2-3 sentences describing the hazard: what type, where it is, how severe, trajectory/forecast]
+
+WHO IS AFFECTED
+[Zone list with approximate population. Identify special risk areas (flood zones, wildfire interface, etc.)]
+
+WHAT PEOPLE SHOULD DO
+[Numbered list of 3-5 specific protective actions]:
+1. [Action]
+2. [Action]
+3. [Action]
+
+[IF_EVACUATION]
+EVACUATION INFORMATION
+Evacuation orders are in effect for [specific zones/addresses].
+Residents and visitors in these areas must evacuate immediately using the following routes:
+- [Route 1 with specific direction]
+- [Route 2 with specific direction]
+
+Open emergency shelters:
+- [Shelter Name] — [Address] — Capacity: [Number] — Pet friendly: [Yes/No]
+- [Shelter Name] — [Address] — Capacity: [Number] — Pet friendly: [Yes/No]
+
+Individuals who need evacuation assistance due to disability or medical condition should call
+[SPECIAL_NEEDS_REGISTRY_LINE] now.
+[/IF_EVACUATION]
+
+RESPONSE OPERATIONS
+[2-3 sentences on what agencies are responding, the activation level, and what response actions
+are underway: number of personnel deployed, shelters activated, resources staged, etc.]
+
+CONTACT INFORMATION
+For public inquiries: [PUBLIC_INFO_LINE]
+For media inquiries: [MEDIA_CONTACT_NAME], [MEDIA_CONTACT_TITLE], [MEDIA_CONTACT_PHONE]
+Official updates: [WEBSITE]
+Social media: [TWITTER_HANDLE] [FACEBOOK_PAGE]
+Emergency status updates: [STATUS_PAGE_URL]
+
+NEXT BRIEFING
+A press briefing will be held at [TIME] at [LOCATION]. Media credentials required.
+
+###
+
+About [Jurisdiction] Emergency Management Agency:
+[One sentence agency description]
+
+This press release was prepared by [JURISDICTION] OES Public Affairs and authorized by
+[AUTHORIZED_OFFICIAL_NAME], Emergency Manager.

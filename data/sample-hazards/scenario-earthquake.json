@@ -1,0 +1,66 @@
+[
+  {
+    "source": "USGS",
+    "source_id": "USGS-EQ-2025-001",
+    "type": "earthquake",
+    "sub_type": "tectonic",
+    "magnitude": 6.2,
+    "depth_km": 8.5,
+    "severity": "warning",
+    "urgency": "immediate",
+    "certainty": "observed",
+    "headline": "M6.2 Earthquake - 3km SE of Downtown Sample County",
+    "description": "A magnitude 6.2 earthquake occurred at 14:32:07 UTC at a depth of 8.5 km, approximately 3 km southeast of the Downtown Core. Shaking was reported as Strong to Very Strong (MMI VI-VII) in the epicentral area. Structural damage is likely in older unreinforced masonry buildings. Aftershocks of M4.0+ are expected in the coming hours and days.",
+    "instruction": "Drop, Cover, and Hold On. When shaking stops, check yourself and others for injuries. Do not use elevators. Expect aftershocks. If you smell gas, leave the building. Be alert for falling hazards when moving.",
+    "area_desc": "Downtown Core, Zone B; Secondary shaking in Zones A, C, D, E",
+    "sent_utc": "2025-03-22T14:32:07Z",
+    "effective_utc": "2025-03-22T14:32:07Z",
+    "expires_utc": "",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.10, 37.70]
+    }
+  },
+  {
+    "source": "USGS",
+    "source_id": "USGS-EQ-2025-002",
+    "type": "earthquake",
+    "sub_type": "aftershock",
+    "magnitude": 4.7,
+    "depth_km": 9.2,
+    "severity": "watch",
+    "urgency": "immediate",
+    "certainty": "observed",
+    "headline": "M4.7 Aftershock - 2km ESE of Downtown Sample County",
+    "description": "A magnitude 4.7 aftershock occurred 18 minutes after the main M6.2 event. Shaking was Moderate (MMI V) in the affected area. Additional aftershocks are expected.",
+    "instruction": "Brace for additional aftershocks. Continue avoiding damaged buildings. Do not re-enter any building that has visible structural damage.",
+    "area_desc": "Downtown Core and surrounding areas",
+    "sent_utc": "2025-03-22T14:50:00Z",
+    "effective_utc": "2025-03-22T14:50:00Z",
+    "expires_utc": "",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.09, 37.70]
+    }
+  },
+  {
+    "source": "LOCAL-SENSOR",
+    "source_id": "GAS-LEAK-2025-001",
+    "type": "hazmat",
+    "sub_type": "gas-leak",
+    "severity": "warning",
+    "urgency": "immediate",
+    "certainty": "observed",
+    "headline": "Multiple gas leak reports following earthquake — Downtown Core",
+    "description": "Multiple reports of natural gas leaks from ruptured lines in the Downtown Core following the M6.2 earthquake. Utility crews have been dispatched but gas shut-off may take 2-4 hours to complete for the affected grid sections. Explosion and fire risk elevated.",
+    "instruction": "If you smell gas, evacuate the building immediately. Do not use light switches or electrical devices. Do not re-enter until cleared by utility crews. Move upwind of any suspected leak.",
+    "area_desc": "Downtown Core, Zone B — multiple block areas",
+    "sent_utc": "2025-03-22T14:55:00Z",
+    "effective_utc": "2025-03-22T14:55:00Z",
+    "expires_utc": "",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.11, 37.72]
+    }
+  }
+]

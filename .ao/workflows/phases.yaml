@@ -1,0 +1,214 @@
+phases:
+  ingest-hazards:
+    mode: command
+    command:
+      program: bash
+      args: ["-c", "bash scripts/ingest-hazards.sh"]
+      cwd_mode: project_root
+      timeout_secs: 60
+    capabilities:
+      mutates_state: true
+      writes_files: true
+
+  classify-hazard:
+    mode: agent
+    agent: hazard-monitor
+    directive: |
+      Read data/raw-hazards.json and classify all hazard events.
+
+      Steps:
+      1. Parse the raw hazard array. Deduplicate reports that describe the same physical event
+         (same location, same type, within 30 minutes of each other).
+      2. Correlate related hazards into one disaster record. Example: multiple NWS flood watches
+         in the same watershed = one flood disaster.
+      3. Classify the disaster type from: hurricane, earthquake, flood, wildfire, tornado,
+         hazmat, winter-storm, tsunami. If multiple types, use the most severe.
+      4. Assign severity:
+         - advisory: Conditions possible but not imminent. Awareness only.
+         - watch: Conditions are favorable for the hazard. Prepare.
+         - warning: Hazard is imminent or occurring. Take action now.
+         - emergency: Life-threatening conditions are occurring. Immediate action required.
+      5. Estimate the affected area: list county/zone names, estimate population at risk,
+         and compute approximate geographic extent.
+      6. Output recommended_action:
+         - monitor: severity=advisory — track only, no public activation needed
+         - alert: severity=watch or warning — issue public alerts
+         - mobilize: severity=emergency — full response activation
+
+      Write the structured disaster record to data/disaster.json.
+      Ensure the file is valid JSON before completing.
+    capabilities:
+      mutates_state: true
+      writes_files: true
+    decision_contract:
+      required_fields: [verdict, reasoning]
+      verdicts:
+        monitor: "Advisory level — no public response needed, track only"
+        alert: "Watch/warning level — issue public alerts"
+        mobilize: "Emergency level — full response activation"
+
+  issue-alerts:
+    mode: agent
+    agent: alert-coordinator
+    directive: |
+      Draft and issue public alerts for the disaster in data/disaster.json.
+
+      1. Read data/disaster.json to understand the event.
+      2. Read config/jurisdiction.yaml to identify affected zones and infrastructure.
+      3. Read config/alert-templates/*.txt for message format guidance.
+      4. Determine affected zones based on hazard location and jurisdiction boundaries.
+      5. Draft all four alert formats:
+         - EAS: Broadcast format with SAME code, event type, duration, area, instructions
+         - WEA: Mobile push — MUST be under 360 characters. Plain language. Include zone,
+           threat, and one protective action.
+         - Social media: Urgent tone, accessible language, hashtags, share-friendly
+         - Press release: Full detail for journalists — who/what/where/when/why, contact info
+      6. List evacuation routes for any zones requiring evacuation.
+      7. List shelter locations with addresses and capacities.
+
+      Create output/ and output/alerts/ directories if they don't exist.
+      Write each alert to output/alerts/ and the summary record to data/alerts-issued.json.
+
+      Protective action guidance by severity:
+      - watch: Prepare emergency kits, know your evacuation route, monitor official channels
+      - warning: Be ready to evacuate on short notice, move valuables to upper floors
+      - emergency: Evacuate immediately if in affected zones OR shelter in place if evacuation is not safe
+    capabilities:
+      mutates_state: true
+      writes_files: true
+
+  mobilize-resources:
+    mode: agent
+    agent: resource-mobilizer
+    directive: |
+      Design a resource deployment plan for the disaster in data/disaster.json.
+
+      1. Read data/disaster.json (disaster type, severity, affected area, population).
+      2. Read data/alerts-issued.json (alert tier, affected zones, shelter locations).
+      3. Read config/resource-inventory.yaml (available personnel, equipment, supplies, shelters).
+      4. Read config/staging-areas.yaml (pre-designated staging locations).
+
+      Use sequential-thinking to work through deployment planning:
+      - Step 1: Calculate resource needs by disaster type and affected population scale
+        (rule of thumb: 1 first responder per 500 residents in emergency zone)
+      - Step 2: Assign highest-priority assets first (life-safety: search+rescue, medical)
+      - Step 3: Assign infrastructure protection (firefighting, flood barriers, power restoration)
+      - Step 4: Assign shelter and logistics (open shelters, move supplies, staff EOC)
+      - Step 5: Identify gaps — what do we need that we don't have locally?
+      - Step 6: Draft mutual aid requests for state/federal partners
+
+      Activation level:
+      - partial: Local resources sufficient, single-agency coordination
+      - full: Multi-agency unified command required
+      - mutual-aid: Local + state resources needed, request federal support
+
+      Write deployment-plan.json with all assignments, staging areas, shelter activations,
+      supply distribution schedules, mutual aid requests, estimated cost, and logistics notes.
+    capabilities:
+      mutates_state: true
+      writes_files: true
+
+  track-deployment:
+    mode: command
+    command:
+      program: bash
+      args: ["-c", "bash scripts/track-deployment.sh"]
+      cwd_mode: project_root
+      timeout_secs: 30
+    capabilities:
+      mutates_state: true
+      writes_files: true
+
+  generate-sitrep:
+    mode: agent
+    agent: situation-reporter
+    directive: |
+      Generate a comprehensive Situation Report (SITREP) for the current emergency.
+
+      Read all available data files:
+      - data/disaster.json (hazard classification and severity)
+      - data/alerts-issued.json (alert status and channels, if exists)
+      - data/deployment-plan.json (resource assignment plan, if exists)
+      - data/deployment-status.json (real-time deployment status, if exists)
+
+      Skip any files that don't exist yet (this phase runs in both monitoring and full-response paths).
+
+      Write the SITREP following ICS format with all 8 required sections.
+      Be precise with numbers. Label estimates as estimates. Use UTC timestamps.
+
+      File naming: Use the disaster_id from data/disaster.json and today's date.
+      Example: reports/sitrep-2025-01-15-DIS-2025-01-15-0001.md
+      Also write: reports/latest-sitrep.md (always overwrite with current)
+
+      Create the reports/ directory if it doesn't exist.
+    capabilities:
+      mutates_state: true
+      writes_files: true
+
+  review-sitrep:
+    mode: agent
+    agent: recovery-planner
+    directive: |
+      Review the situation report and make an operational decision about the next phase.
+
+      1. Read reports/latest-sitrep.md carefully.
+      2. Read data/disaster.json for original hazard classification.
+      3. Assess the operational situation:
+         - Is the immediate threat contained or still growing?
+         - Are current resources adequate or are there critical unmet needs?
+         - Have life-safety operations been completed?
+         - Is the situation stable enough to begin recovery planning?
+
+      Decision rules:
+      - escalate: Choose this ONLY if there is clear evidence the situation is worsening —
+        e.g., hazard intensifying, resource gaps endangering lives, SITREP shows deteriorating
+        trend. Leads back to mobilize-resources for additional deployment.
+      - sustain: Choose when the immediate threat is contained but the event is ongoing —
+        operations continue, resource deployment is adequate, begin recovery planning.
+      - resolved: Choose when life-safety operations are complete, immediate threat has passed,
+        and focus can shift entirely to recovery and restoration.
+
+      Provide detailed reasoning for your decision. This is a life-safety decision —
+      be explicit about the evidence supporting your verdict.
+
+      Output a JSON decision on the final line:
+      {"verdict": "escalate|sustain|resolved", "reasoning": "detailed explanation"}
+    capabilities:
+      mutates_state: false
+      writes_files: false
+    decision_contract:
+      required_fields: [verdict, reasoning]
+      verdicts:
+        escalate: "Situation worsening — additional resource mobilization needed"
+        sustain: "Situation stable — maintain operations, begin recovery planning"
+        resolved: "Threat passed — transition to full recovery"
+
+  plan-recovery:
+    mode: agent
+    agent: recovery-planner
+    directive: |
+      Design a comprehensive disaster recovery plan and produce an after-action review.
+
+      1. Read reports/latest-sitrep.md for operational context.
+      2. Read data/disaster.json for disaster characteristics.
+      3. Read data/deployment-plan.json for response resource expenditure.
+
+      Use sequential-thinking to map recovery:
+      - Step 1: Map infrastructure dependency chain (power → water → comms → transport → services)
+      - Step 2: Identify critical path — what must be restored first to unlock other recovery?
+      - Step 3: Sequence tasks: immediate (0-72h), short-term (1-4 weeks), long-term (1-12 months)
+      - Step 4: Assign responsible agencies and estimate durations for each task
+      - Step 5: Calculate cost estimates by phase and identify FEMA-reimbursable categories
+      - Step 6: Identify lessons learned across preparedness, response, communication, logistics
+
+      Write three output files:
+      1. reports/recovery-plan.md — narrative recovery strategy with sections for each phase,
+         infrastructure priorities, community programs, and economic recovery
+      2. reports/after-action-review.md — formal AAR with strengths, areas for improvement,
+         specific recommendations with owners and target dates
+      3. data/recovery-tasks.json — structured task list matching the output contract schema
+
+      Create the reports/ directory if it doesn't exist.
+    capabilities:
+      mutates_state: true
+      writes_files: true

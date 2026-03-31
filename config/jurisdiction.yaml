@@ -1,0 +1,125 @@
+jurisdiction:
+  name: "Sample County Emergency Management"
+  fips_code: "06001"
+  state: "CA"
+  population: 1650000
+  area_sq_miles: 821
+  emergency_manager: "Director Jane Doe"
+  eoc_address: "County Admin Building, 1600 Government Way, Room 200"
+  eoc_phone: "555-911-0200"
+  public_info_line: "555-911-0100"
+  media_contact: "Public Affairs Office, 555-911-0300"
+
+  zones:
+    - id: zone-a
+      name: "North Valley"
+      population: 320000
+      flood_risk: high
+      fire_risk: moderate
+      elevation_ft: 120
+      key_infrastructure: ["North Valley Water Treatment Plant", "Valley Memorial Hospital"]
+    - id: zone-b
+      name: "Downtown Core"
+      population: 450000
+      flood_risk: low
+      fire_risk: low
+      elevation_ft: 85
+      key_infrastructure: ["City Hall", "Central Power Substation", "Main Library Shelter"]
+    - id: zone-c
+      name: "Hillside District"
+      population: 280000
+      flood_risk: low
+      fire_risk: high
+      elevation_ft: 650
+      key_infrastructure: ["Hillside Elementary School", "Cell Tower Array North"]
+    - id: zone-d
+      name: "Industrial Corridor"
+      population: 45000
+      flood_risk: moderate
+      fire_risk: low
+      hazmat_risk: high
+      elevation_ft: 95
+      key_infrastructure: ["Regional Wastewater Treatment Plant", "Chemical Storage Facility Alpha"]
+    - id: zone-e
+      name: "South Flats"
+      population: 555000
+      flood_risk: high
+      fire_risk: low
+      elevation_ft: 15
+      key_infrastructure: ["Airport", "Port Authority", "South County Medical Center"]
+
+  critical_infrastructure:
+    hospitals:
+      - name: "Valley Memorial Hospital"
+        zone: zone-a
+        capacity_beds: 450
+        backup_power: true
+        address: "1200 Valley Medical Drive"
+      - name: "St. Mary's Medical Center"
+        zone: zone-b
+        capacity_beds: 600
+        backup_power: true
+        address: "890 Central Boulevard"
+      - name: "South County Medical Center"
+        zone: zone-e
+        capacity_beds: 380
+        backup_power: true
+        address: "3400 Harbor View Road"
+
+    schools:
+      - name: "Central High School"
+        zone: zone-b
+        capacity: 500
+        designated_shelter: true
+      - name: "Valley Elementary"
+        zone: zone-a
+        capacity: 200
+        designated_shelter: false
+      - name: "Westside Middle School"
+        zone: zone-b
+        capacity: 350
+        designated_shelter: true
+      - name: "Convention Center"
+        zone: zone-b
+        capacity: 2000
+        designated_shelter: true
+
+    utilities:
+      - name: "Power Plant Alpha"
+        zone: zone-d
+        type: power-generation
+        serves_zones: [zone-a, zone-b, zone-c, zone-d, zone-e]
+      - name: "North Valley Water Treatment Plant"
+        zone: zone-a
+        type: water-treatment
+        serves_zones: [zone-a, zone-b, zone-c]
+      - name: "Regional Wastewater Treatment Plant"
+        zone: zone-d
+        type: wastewater
+        serves_zones: [zone-a, zone-b, zone-c, zone-d, zone-e]
+
+    evacuation_routes:
+      - id: route-1
+        name: "Highway 101 North"
+        direction: north
+        capacity_vehicles_per_hour: 3000
+        contraflow_capable: true
+        notes: "Primary northbound evacuation corridor. Contraflow activates at emergency declaration."
+      - id: route-2
+        name: "Interstate 5 South"
+        direction: south
+        capacity_vehicles_per_hour: 4500
+        contraflow_capable: true
+        notes: "Primary southbound corridor. Contraflow from Exit 42 to Exit 18."
+      - id: route-3
+        name: "Route 9 East"
+        direction: east
+        capacity_vehicles_per_hour: 1200
+        contraflow_capable: false
+        notes: "Secondary eastbound route. Bridge at mile 14 weight limit 40 tons."
+      - id: route-4
+        name: "Coast Highway South"
+        direction: southwest
+        capacity_vehicles_per_hour: 800
+        contraflow_capable: false
+        notes: "Tertiary coastal route. Vulnerable to tsunami inundation — do NOT use for coastal hazards."

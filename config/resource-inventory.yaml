@@ -1,0 +1,200 @@
+resources:
+  personnel:
+    - unit: "Fire Station 12"
+      type: fire
+      count: 25
+      location: "1400 North Valley Road"
+      capabilities: [firefighting, search-and-rescue, hazmat, water-rescue]
+      available: 20
+      contact: "Captain Rodriguez, 555-912-0012"
+
+    - unit: "Fire Station 7"
+      type: fire
+      count: 18
+      location: "340 Downtown Plaza"
+      capabilities: [firefighting, technical-rescue, hazmat]
+      available: 15
+      contact: "Captain Chen, 555-912-0007"
+
+    - unit: "Police Precinct 3"
+      type: law-enforcement
+      count: 40
+      location: "900 Law Enforcement Drive"
+      capabilities: [traffic-control, evacuation, security, crowd-control]
+      available: 32
+      contact: "Sergeant Williams, 555-913-0003"
+
+    - unit: "Police Precinct 1"
+      type: law-enforcement
+      count: 55
+      location: "200 Justice Center Blvd"
+      capabilities: [traffic-control, evacuation, security]
+      available: 45
+      contact: "Lieutenant Park, 555-913-0001"
+
+    - unit: "EMS Unit Alpha"
+      type: medical
+      count: 12
+      location: "Valley Memorial Hospital Annex"
+      capabilities: [triage, emergency-transport, field-hospital-setup]
+      available: 10
+      contact: "Supervisor Martinez, 555-914-0001"
+
+    - unit: "EMS Unit Bravo"
+      type: medical
+      count: 8
+      location: "South County Medical Center"
+      capabilities: [triage, emergency-transport]
+      available: 8
+      contact: "Supervisor Thompson, 555-914-0002"
+
+    - unit: "County Public Works - Emergency Crew"
+      type: public-works
+      count: 30
+      location: "County Maintenance Yard"
+      capabilities: [debris-removal, road-clearance, utility-restoration-support]
+      available: 25
+      contact: "Director Kim, 555-916-0100"
+
+    - unit: "County OES Staff"
+      type: emergency-management
+      count: 15
+      location: "Emergency Operations Center"
+      capabilities: [ics-coordination, logistics, public-information, documentation]
+      available: 12
+      contact: "EOC Director Johnson, 555-911-0200"
+
+  equipment:
+    - type: swift-water-rescue-boat
+      quantity: 4
+      location: "County Fleet Depot"
+      address: "2200 Industrial Boulevard"
+      notes: "18-ft aluminum jon boats with 40hp outboard motors"
+
+    - type: generator-50kw
+      quantity: 8
+      location: "Warehouse B"
+      address: "1800 Industrial Boulevard"
+      notes: "Diesel, 500-gallon tank capacity, 72-hour runtime per tank"
+
+    - type: generator-20kw
+      quantity: 12
+      location: "Fire Station 12 and 7 (6 each)"
+      notes: "For shelter backup power"
+
+    - type: water-tanker-5000gal
+      quantity: 3
+      location: "County Fleet Depot"
+      notes: "Potable water distribution"
+
+    - type: decontamination-unit
+      quantity: 2
+      location: "Fire Station 12"
+      notes: "For hazmat incidents, capacity 20 persons/hour"
+
+    - type: mobile-command-unit
+      quantity: 1
+      location: "County Fleet Depot"
+      notes: "Fully equipped EOC-on-wheels, satellite uplink, 40-person capacity"
+
+    - type: flood-barrier-aquadam
+      quantity: 500
+      location: "County Maintenance Yard"
+      units: "linear feet"
+      notes: "Water-inflated flood barriers, 1-meter height"
+
+    - type: chain-saw-teams
+      quantity: 8
+      location: "Various fire stations"
+      notes: "For debris removal and search access"
+
+    - type: search-and-rescue-dog-team
+      quantity: 3
+      location: "Fire Station 12"
+      notes: "Certified USAR K9 teams"
+
+    - type: helicopter-light
+      quantity: 1
+      location: "County Airport"
+      notes: "Bell 206, medical evacuation and recon. Requires FAA approval for medevac."
+
+  shelters:
+    - name: "Central High School"
+      id: shelter-chs
+      zone: zone-b
+      capacity: 500
+      address: "1100 Education Blvd"
+      contact: "Principal Davis, 555-920-0100"
+      amenities: [generator-backup, commercial-kitchen, showers, wifi, accessible]
+      pet_friendly: false
+      special_needs_capable: true
+
+    - name: "Convention Center"
+      id: shelter-cc
+      zone: zone-b
+      capacity: 2000
+      address: "500 Convention Center Drive"
+      contact: "Manager Park, 555-920-0200"
+      amenities: [generator-backup, commercial-kitchen, medical-station, wifi, accessible, loading-dock]
+      pet_friendly: true
+      special_needs_capable: true
+      notes: "Primary mega-shelter for major events"
+
+    - name: "Westside Middle School"
+      id: shelter-wms
+      zone: zone-b
+      capacity: 350
+      address: "780 Westside Avenue"
+      contact: "Principal Lee, 555-920-0300"
+      amenities: [generator-backup, cafeteria, accessible]
+      pet_friendly: false
+      special_needs_capable: false
+
+    - name: "South County Fairgrounds"
+      id: shelter-scf
+      zone: zone-e
+      capacity: 3500
+      address: "4000 Fairgrounds Road"
+      contact: "Manager Thompson, 555-920-0400"
+      amenities: [large-parking, vehicle-access, outdoor-space]
+      pet_friendly: true
+      special_needs_capable: false
+      notes: "Overflow/vehicle shelter. Requires portable toilet and generator deployment."
+
+  supplies:
+    water_gallons: 50000
+    water_bottles_case: 2000
+    mre_count: 25000
+    blankets: 10000
+    first_aid_kits: 500
+    cots: 3000
+    tarps: 1500
+    flashlights: 800
+    batteries_aa_packs: 400
+    portable_toilets: 50
+    hygiene_kits: 2000
+    baby_supplies_kits: 200
+    pet_food_lbs: 1000
+    n95_masks: 5000
+    nitrile_gloves_boxes: 200
+
+  mutual_aid_contacts:
+    - agency: "State Office of Emergency Services"
+      resource_types: [personnel, equipment, supplies, funding]
+      contact: "State OES Duty Officer, 800-OES-0911"
+      lead_time_hours: 4
+
+    - agency: "California National Guard"
+      resource_types: [helicopters, personnel, heavy-equipment, engineering]
+      contact: "JFHQ Duty Officer, 916-854-3000"
+      lead_time_hours: 6
+
+    - agency: "American Red Cross - Bay Area Chapter"
+      resource_types: [shelter-management, casework, food-distribution]
+      contact: "Disaster Program Manager, 555-RED-CROSS"
+      lead_time_hours: 2
+
+    - agency: "FEMA Region 9"
+      resource_types: [federal-assistance, USAR-teams, logistics-staging, funding]
+      contact: "FEMA Region 9 Duty Officer, 510-627-7100"
+      lead_time_hours: 12

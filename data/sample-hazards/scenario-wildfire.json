@@ -1,0 +1,62 @@
+[
+  {
+    "source": "CAL-FIRE",
+    "source_id": "CALFIRE-HILLS-2025-001",
+    "type": "weather-alert",
+    "sub_type": "Evacuation Warning — Wildfire",
+    "severity": "extreme",
+    "urgency": "immediate",
+    "certainty": "observed",
+    "headline": "Evacuation Warning: Hillside Fire — 850 acres, 0% contained, wind-driven, approaching Hillside District",
+    "description": "The Hillside Fire ignited at approximately 1320 UTC in the dry grass and chaparral east of the Hillside District (Zone C). A Red Flag Warning is in effect with gusts of 45-60 mph from the northeast driving rapid fire spread toward residential areas. As of 1500 UTC, the fire is estimated at 850 acres with 0% containment. Rate of spread is extreme. At current trajectory, fire may reach the first residential structures on Ridge View Drive within 30-45 minutes.",
+    "instruction": "EVACUATION WARNING — Prepare to leave immediately. Gather medications, documents, pets, and go-bag. Be ready to leave on short notice. If you see or smell smoke close to your home, leave NOW — do not wait for an official evacuation order.",
+    "area_desc": "Zone C (Hillside District) — east of Ridgeline Road; portions of Zone A upper foothills",
+    "sent_utc": "2025-10-12T15:05:00Z",
+    "effective_utc": "2025-10-12T15:05:00Z",
+    "expires_utc": "2025-10-13T08:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.05, 37.80]
+    }
+  },
+  {
+    "source": "NWS",
+    "source_id": "NWS-RFW-2025-001",
+    "type": "weather-alert",
+    "sub_type": "Red Flag Warning",
+    "severity": "extreme",
+    "urgency": "immediate",
+    "certainty": "likely",
+    "headline": "Red Flag Warning — Critical fire weather through 0800 UTC tomorrow",
+    "description": "Red Flag Warning in effect through 0800 UTC Tuesday for the Sample County hills and mountains. Northeast winds sustained at 25-35 mph with gusts up to 65 mph are expected. Relative humidity will drop to 5-10% by late afternoon. Combined with critically dry fuels (KBDI > 600), extreme fire behavior is expected if ignition occurs. Outdoor burning is prohibited.",
+    "instruction": "Avoid activities that may cause sparks. If you see a fire, call 911 immediately. Prepare your home and family for possible rapid evacuation.",
+    "area_desc": "Hillside District (Zone C), North Valley foothills (Zone A upper elevations)",
+    "sent_utc": "2025-10-12T06:00:00Z",
+    "effective_utc": "2025-10-12T06:00:00Z",
+    "expires_utc": "2025-10-13T08:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.05, 37.82]
+    }
+  },
+  {
+    "source": "AIR-QUALITY",
+    "source_id": "AQI-SMOKE-2025-001",
+    "type": "environmental",
+    "sub_type": "air-quality-advisory",
+    "severity": "severe",
+    "urgency": "immediate",
+    "certainty": "observed",
+    "headline": "Air Quality Advisory — Hazardous smoke from Hillside Fire affecting all zones",
+    "description": "Thick smoke from the Hillside Fire has reduced air quality to Hazardous levels (AQI > 300) across Sample County. PM2.5 readings at the downtown monitor reached 387 at 1430 UTC. Visibility is reduced to less than 0.5 miles in Zone C. Sensitive groups (elderly, children, respiratory conditions) face serious health risks. All outdoor activity should be suspended.",
+    "instruction": "Remain indoors with doors and windows closed. Set HVAC to recirculate. Wear an N95 or KN95 mask if you must go outside. Evacuate if fire approaches — do not shelter in place if fire is within 1 mile.",
+    "area_desc": "All Sample County zones — heaviest impact in Zone C and downwind Zone A",
+    "sent_utc": "2025-10-12T14:35:00Z",
+    "effective_utc": "2025-10-12T14:35:00Z",
+    "expires_utc": "2025-10-14T00:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-122.08, 37.78]
+    }
+  }
+]

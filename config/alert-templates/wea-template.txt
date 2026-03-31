@@ -1,0 +1,27 @@
+WIRELESS EMERGENCY ALERT (WEA) TEMPLATE
+========================================
+MAXIMUM 360 CHARACTERS — plain language, no abbreviations that could confuse.
+
+Format:
+[EVENT_TYPE] [ALERT_TIER] for [ZONE]. [ONE_PROTECTIVE_ACTION]. [ONE_SENTENCE_THREAT_DESCRIPTION]. [OFFICIAL_INFO_SOURCE].
+
+Examples (use as reference, draft fresh for each event):
+
+FLOOD WARNING: "Flash Flood Warning for North Valley. Move to higher ground NOW. 2-4 inches of rain expected in next hour causing life-threatening flooding. For info: county.gov/emergency or call 555-911-0100"
+(178 chars)
+
+WILDFIRE: "Evacuation Order for Hillside District zones A-C. Leave immediately via Hwy 101 North. Wildfire 2 miles away, wind-driven. Shelter: Central High School, 1100 Education Blvd. Info: 555-911-0100"
+(196 chars)
+
+EARTHQUAKE: "Earthquake Shaking Alert. Drop, Cover, Hold On. 6.2 magnitude near Downtown. Aftershocks expected. Avoid damaged buildings. If smell gas, evacuate. Info: 555-911-0100"
+(168 chars)
+
+HURRICANE: "Hurricane Warning for all zones. Evacuate coastal areas NOW via posted routes. Category 3, landfall in 12 hours. Winds 120mph, life-threatening storm surge. Shelters open at Convention Center. 555-911-0100"
+(207 chars)
+
+NOTES:
+- Keep under 360 characters total
+- Lead with event type and severity
+- Include ONE clear protective action
+- Include information hotline
+- Never use all-caps unless required (it reads as shouting in tests but is standard for EAS)

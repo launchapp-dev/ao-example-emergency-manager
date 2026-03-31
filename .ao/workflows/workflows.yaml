@@ -1,0 +1,77 @@
+default_workflow_ref: emergency-response
+
+workflows:
+  - id: emergency-response
+    name: "Full Emergency Response Pipeline"
+    description: |
+      Full emergency management lifecycle: hazard ingestion → classification → public alerts
+      → resource mobilization → deployment tracking → situation reporting → recovery planning.
+      Handles all severity levels with triage routing and escalation rework loop.
+    phases:
+      - ingest-hazards
+      - classify-hazard:
+          on_verdict:
+            monitor:
+              target: generate-sitrep
+            alert:
+              target: issue-alerts
+            mobilize:
+              target: issue-alerts
+          max_rework_attempts: 1
+      - issue-alerts
+      - mobilize-resources
+      - track-deployment
+      - generate-sitrep
+      - review-sitrep:
+          on_verdict:
+            escalate:
+              target: mobilize-resources
+            sustain:
+              target: plan-recovery
+            resolved:
+              target: plan-recovery
+          max_rework_attempts: 2
+      - plan-recovery
+    post_success:
+      merge:
+        strategy: squash
+        target_branch: main
+        create_pr: true
+        auto_merge: true
+        cleanup_worktree: true
+
+  - id: hazard-scan
+    name: "Quick Hazard Scan"
+    description: |
+      Lightweight hazard monitoring — ingest feeds and classify, no response activation.
+      Designed for frequent runs (every 15 minutes) to detect emerging threats early.
+    phases:
+      - ingest-hazards
+      - classify-hazard:
+          on_verdict:
+            monitor:
+              target: generate-sitrep
+            alert:
+              target: generate-sitrep
+            mobilize:
+              target: generate-sitrep
+          max_rework_attempts: 1
+      - generate-sitrep
+
+  - id: sitrep-only
+    name: "Situation Report Update"
+    description: |
+      For ongoing active events — generate an updated situation report and review
+      operational status. Useful during sustained response operations.
+    phases:
+      - generate-sitrep
+      - review-sitrep:
+          on_verdict:
+            escalate:
+              target: plan-recovery
+            sustain:
+              target: plan-recovery
+            resolved:
+              target: plan-recovery
+          max_rework_attempts: 1
+      - plan-recovery
